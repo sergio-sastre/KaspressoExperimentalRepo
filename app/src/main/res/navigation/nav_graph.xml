@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="sergio.sastre.experimental.kaspresso.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="sergio.sastre.experimental.kaspresso.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_ScrollingFragment"
+            app:destination="@id/ScrollingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ScrollingFragment"
+        android:name="sergio.sastre.experimental.kaspresso.ScrollingFragment"
+        android:label="@string/scrolling_fragment_label"
+        tools:layout="@layout/fragment_scrolling">
+
+    </fragment>
+</navigation>

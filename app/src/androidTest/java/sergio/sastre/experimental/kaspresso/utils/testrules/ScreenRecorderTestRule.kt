@@ -8,6 +8,26 @@ import org.junit.runner.Description
 import java.io.File
 import java.util.concurrent.Executors
 
+/**
+ * ScreenRecorderTest rule that enables screen recording for each test annotated with [RecordScreenTest]
+ *
+ * CHECK LIST
+ * 1) What happens when recording more than 180 seconds (screenrecord times out)?
+ * 2) Sleep 1 sufficient if recording long (e.g. 180 seconds) due to bigger file ?
+ * 3) How it behaves on different APIS from API 21 to API 30
+ *     API 21 ?
+ *     API 22 ✗ - Recordings created but not playable. Same result if trying with AS screenrecord button
+ *     API 23 ?
+ *     API 25 ?
+ *     API 26 ?
+ *     API 26 ?
+ *     API 27 ?
+ *     API 28 ?
+ *     API 29 ✓
+ * 4) mkdir command would not run on WINDOWS
+ * 5) Does it work with test sharding -> is "adb shell -e/-s" required to screenrecord on the device
+ *    running the test if several connected?)
+ */
 @RequiresAdbServer
 class ScreenRecorderTestRule internal constructor(
     private val adbServer: AdbServer,
@@ -99,22 +119,3 @@ class ScreenRecorderTestRule internal constructor(
         }
     }
 }
-
-/**
- * CHECK LIST
- * 1) What happens when recording more than 180 seconds (screenrecord times out)?
- * 2) Sleep 1 sufficient if recording 180 seconds?
- * 3) How it behaves on different APIS from API 21 to API 30
- *     API 21 ?
- *     API 22 ✗ - Recordings created but not playable
- *     API 23 ?
- *     API 25 ?
- *     API 26 ?
- *     API 26 ?
- *     API 27 ?
- *     API 28 ?
- *     API 29 ✓
- * 4) mkdir command would not run on Windows
- * 5) Does it work with test sharding -> is "adb shell -e/-s" required to screenrecord on the device
- *    running the test if several connected?)
- */
